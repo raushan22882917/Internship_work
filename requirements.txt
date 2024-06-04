@@ -1,0 +1,6 @@
+Flask
+pandas
+requests
+Pillow
+rembg
+gunicorn

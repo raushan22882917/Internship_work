@@ -34,7 +34,7 @@ def process_images(df, option, width=None, height=None):
     
     for index, row in df.iterrows():
         url = row['Image link']
-        image_name = row['Mat Code']
+        image_name = row['Image Name']
         
         if pd.notna(url) and pd.notna(image_name) and is_valid_url(url):
             image = download_image(url)
@@ -99,8 +99,8 @@ def upload_file():
             return f"Error reading the CSV file: {e}"
         
         # Check if required columns exist
-        if 'Image link' not in df.columns or 'Mat Code' not in df.columns:
-            return "'Image link' or 'Mat Code' column not found in the CSV file."
+        if 'Image link' not in df.columns or 'Image Name' not in df.columns:
+            return "'Image link' or 'Image Name' column not found in the CSV file."
 
         option = request.form.get('option')
         width = int(request.form.get('width')) if request.form.get('width') else None
